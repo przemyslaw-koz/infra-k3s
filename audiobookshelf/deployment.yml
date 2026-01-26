@@ -16,5 +16,5 @@ spec:
         app: audiobookshelf
     spec:
       containers:
-        - name:
-          image:
+        - name: audiobookshelf
+          image: ghcr.io/advplyr/audiobookshelf:latest
