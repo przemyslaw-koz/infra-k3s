@@ -19,5 +19,5 @@ TODO:
 ### Image, Resources & Security
 - [ ] Fork upstream repo -> build/push to private `ghcr.io`
 - [ ] Update manifests to pull image from `ghcr.io`
-- [ ] Add `resources` (limits/requests) to deployment
-- [ ] Add `securityContext` (rootless, capabilities, etc.)
+- [x] Add `resources` (limits/requests) to deployment
+- [x] Add `securityContext` (rootless, capabilities, etc.)
