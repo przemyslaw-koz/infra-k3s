@@ -7,11 +7,10 @@ metadata:
 spec:
   replicas: 1
   selector:
-    mathchLabels:
+    matchLabels:
       app: audiobookshelf
   template:
     metadata:
-      name: audiobookshelf
       labels:
         app: audiobookshelf
     spec:
@@ -19,7 +18,7 @@ spec:
         - name: audiobookshelf
           image: ghcr.io/advplyr/audiobookshelf:latest
           env:
-            name: TZ
-            value: Europe/Warsaw
+            - name: TZ
+              value: Europe/Warsaw
           ports:
             - containerPort: 80
