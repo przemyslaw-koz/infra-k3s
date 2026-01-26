@@ -16,3 +16,8 @@ TODO:
     - [ ] Setup `path filtering` (only run jobs when relevant files change)
     - [ ] Generate `PR summary` for better visibility
 
+### Image, Resources & Security
+- [ ] Fork upstream repo -> build/push to private `ghcr.io`
+- [ ] Update manifests to pull image from `ghcr.io`
+- [ ] Add `resources` (limits/requests) to deployment
+- [ ] Add `securityContext` (rootless, capabilities, etc.)
