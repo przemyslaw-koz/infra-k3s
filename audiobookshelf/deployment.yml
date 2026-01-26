@@ -22,3 +22,26 @@ spec:
               value: Europe/Warsaw
           ports:
             - containerPort: 80
+          volumeMounts:
+            - mountPath: /config
+              name: config
+              readOnly: false
+            - mountPath: /metadata
+              name: metadata
+              readOnly: false
+            - mountPath: /audiobooks
+              name: audiobooks
+              readOnly: true
+      volumes:
+        - name: config
+          hostPath:
+            path: /srv/audiobookshelf/config
+            type: DirectoryOrCreate
+        - name: metadata
+          hostPath:
+            path: /srv/audiobookshelf/metadata
+            type: DirectoryOrCreate
+        - name: audiobooks
+          hostPath:
+            path: /srv/audiobookshelf/audiobooks
+            type: DirectoryOrCreate
