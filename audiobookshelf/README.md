@@ -1,4 +1,18 @@
 TODO:
-[ ] change nodePath to persistentVolumeClaim
-[ ] add gha - yamllint, trivy config, kubeconform, kubectl dry run, gitleaks, path filtering + pr summary
+
+### Storage & Persistence
+- [ ] Migrate `nodePath` to `persistentVolumeClaim` (standardize storage)
+- [ ] Check backup/restore flow for PVC
+
+### CI/CD Pipeline (GitHub Actions)
+- [ ] **Linting & Validation:**
+    - [ ] Add `yamllint` for manifest consistency
+    - [ ] Add `kubeconform` for schema validation
+    - [ ] Test with `kubectl --dry-run`
+- [ ] **Security:**
+    - [ ] `trivy` for image/config scanning
+    - [ ] `gitleaks` to prevent secret commits
+- [ ] **Automation UX:**
+    - [ ] Setup `path filtering` (only run jobs when relevant files change)
+    - [ ] Generate `PR summary` for better visibility
 
