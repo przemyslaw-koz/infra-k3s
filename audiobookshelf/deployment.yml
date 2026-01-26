@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: audiobookshelf
+  labels:
+    app: audiobookshelf
+spec:
+  replicas: 1
+  selector:
+    mathchLabels:
+      app: audiobookshelf
+  template:
+    metadata:
+      name: audiobookshelf
+      labels:
+        app: audiobookshelf
+    spec:
+      containers:
+        - name:
+          image:
