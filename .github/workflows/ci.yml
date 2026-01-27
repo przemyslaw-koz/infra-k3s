@@ -23,5 +23,20 @@ jobs:
       - name: Run yamllint
         run: |
           yamllint -c .yamllint.yml .
-# validate-k3s:
+  kubeconform:
+    name: Validating kube manifests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Login to Github Packages
+        run: echo "${{ github.token }}" | docker login https://ghcr.io -u ${GITHUB_ACTOR} --password-stdin
+
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Run kubeconform validation
+        uses: docker://ghcr.io/yannh/kubeconform:latest
+        with:
+          entrypoint: '/kubeconform'
+          args: "-strict -summary audiobookshelf/"
 # trivy-config:
