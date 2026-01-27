@@ -1,0 +1,27 @@
+name: infra-k3s-ci
+run-name: linting, dry running and security checks
+on: [push, pull_request]
+jobs:
+  yamllint:
+    name: YAML Lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install yamllint
+        run: |
+          python3 -m pip install --upgrade pip
+          pip install yamllint
+      
+      - name: Run yamllint
+        run: |
+          yamllint -c .yamllint.yml .
+# validate-k3s:
+# trivy-config:
