@@ -32,10 +32,10 @@ jobs:
         run: echo "${{ github.token }}" | docker login https://ghcr.io -u ${GITHUB_ACTOR} --password-stdin
 
       - name: Checkout repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - uses: docker://ghcr.io/yannh/kubeconform:latest
         with:
           entrypoint: '/kubeconform'
-          args: "-summary -output json infra-k3s/"
+          args: "-summary -output json audiobookshelf/"
 # trivy-config:
