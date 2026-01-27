@@ -6,8 +6,8 @@ TODO:
 
 ### CI/CD Pipeline (GitHub Actions)
 - [ ] **Linting & Validation:**
-    - [ ] Add `yamllint` for manifest consistency
-    - [ ] Add `kubeconform` for schema validation
+    - [x] Add `yamllint` for manifest consistency
+    - [x] Add `kubeconform` for schema validation
     - [ ] Test with `kubectl --dry-run`
 - [ ] **Security:**
     - [ ] `trivy` for image/config scanning

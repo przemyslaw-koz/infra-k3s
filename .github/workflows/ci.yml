@@ -34,7 +34,8 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - uses: docker://ghcr.io/yannh/kubeconform:latest
+      - name: Run kubeconform validation
+        uses: docker://ghcr.io/yannh/kubeconform:latest
         with:
           entrypoint: '/kubeconform'
           args: "-strict -summary audiobookshelf/"
