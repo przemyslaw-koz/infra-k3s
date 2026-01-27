@@ -37,5 +37,5 @@ jobs:
       - uses: docker://ghcr.io/yannh/kubeconform:latest
         with:
           entrypoint: '/kubeconform'
-          args: "-summary -output json audiobookshelf/"
+          args: "-strict -summary audiobookshelf/"
 # trivy-config:
