@@ -12,4 +12,4 @@ TODO:
 
 ### Access from internet
 - [x] Configure cloudflared (change current tunnel from docker-compose based app to k3s one)
-- [ ] Stop docker-compose based app to finish migration
+- [x] Stop docker-compose based app to finish migration
