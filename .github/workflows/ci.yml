@@ -2,6 +2,7 @@ name: infra-k3s-ci
 run-name: linting and security checks
 on: 
   push:
+    branches: ["main"]
   pull_request:
     branches: ["main"]
 jobs:
