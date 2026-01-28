@@ -23,13 +23,16 @@ spec:
             - name: LD_SUPERUSER_NAME
               value: admin
             - name: LD_SUPERUSER_PASSWORD
-              value:
+              valueFrom:
+                secretKeyRef:
+                  name: linkding-secret
+                  value: ld_superuser_password
           ports:
             - containerPort: 9090
               name: http
           securityContext:
             allowPrivilegeEscalation: false
-            # readOnlyRootFilesystem: true
+            readOnlyRootFilesystem: false
             capabilities:
               drop: ["ALL"]
           resources:
