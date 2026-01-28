@@ -11,5 +11,5 @@ TODO:
 - [x] Add `securityContext` (rootless, capabilities, etc.)
 
 ### Access from internet
-- [ ] Configure cloudflared (change current tunnel from docker-compose based app to k3s one)
+- [x] Configure cloudflared (change current tunnel from docker-compose based app to k3s one)
 - [ ] Stop docker-compose based app to finish migration
