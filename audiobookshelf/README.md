@@ -8,7 +8,6 @@ TODO:
 - [ ] **Linting & Validation:**
     - [x] Add `yamllint` for manifest consistency
     - [x] Add `kubeconform` for schema validation
-    - [ ] Test with `kubectl --dry-run`
 - [ ] **Security:**
     - [ ] `trivy` for image/config scanning
     - [ ] `gitleaks` to prevent secret commits

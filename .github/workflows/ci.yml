@@ -1,6 +1,9 @@
 name: infra-k3s-ci
-run-name: linting, dry running and security checks
-on: [push, pull_request]
+run-name: linting and security checks
+on: 
+  push:
+  pull_request:
+    branches: ["main"]
 jobs:
   yamllint:
     name: YAML Lint
@@ -28,9 +31,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Login to Github Packages
-        run: echo "${{ github.token }}" | docker login https://ghcr.io -u ${GITHUB_ACTOR} --password-stdin
-
       - name: Checkout repo
         uses: actions/checkout@v4
 
@@ -39,4 +39,33 @@ jobs:
         with:
           entrypoint: '/kubeconform'
           args: "-strict -summary audiobookshelf/"
-# trivy-config:
+  gitleaks:
+    name: Gitleaks scan
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Run gitleaks scan
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  trivy:
+    name: Trivy Security Scan
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Run trivy config scan
+        uses: aquasecurity/trivy-action@0.20.0
+        with:
+          scan-type: config
+          scan-ref: .
+          format: table
+          exit-code: '1'
+          severity: HIGH, CRITICAL
