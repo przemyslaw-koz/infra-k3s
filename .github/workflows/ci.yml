@@ -79,3 +79,12 @@ jobs:
           format: table
           exit-code: '1'
           severity: HIGH,CRITICAL
+
+      - name: Run trivy scan to list medium and low issues
+        uses: aquasecurity/trivy-action@0.20.0
+        with:
+          scan-type: config
+          scan-ref: .
+          format: table
+          exit-code: '0'
+          severity: MEDIUM,LOW
