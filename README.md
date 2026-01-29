@@ -9,6 +9,7 @@ TODO:
 - [x] **Security:**
     - [x] `trivy` for image/config scanning
     - [x] `gitleaks` to prevent secret commits
+    - [ ] another trivy scan for medium and low - not failing pipeline, but showing issues
 - [ ] **Automation UX:**
     - [ ] Setup `path filtering` (only run jobs when relevant files change)
     - [ ] Generate `PR summary` for better visibility
