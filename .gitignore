@@ -1,0 +1,6 @@
+# secrets
+**/secret*.yml
+**/secret*.yaml
+**/*secret*.yml
+**/*secret*.yaml
+**/.env

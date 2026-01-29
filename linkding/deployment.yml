@@ -1,0 +1,61 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: linkding
+  labels:
+    app: linkding
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: linkding
+  template:
+    metadata:
+      labels:
+        app: linkding
+    spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+      containers:
+        - name: linkding
+          image: sissbruecker/linkding:latest
+          env:
+            - name: LD_SUPERUSER_NAME
+              value: admin
+            - name: LD_SUPERUSER_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: linkding-secret
+                  key: ld_superuser_password
+          ports:
+            - containerPort: 9090
+              name: http
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: ["ALL"]
+          resources:
+            limits:
+              cpu: 1000m
+              memory: 1Gi
+            requests:
+              cpu: 100m
+              memory: 256Mi
+          volumeMounts:
+            - mountPath: /etc/linkding/data
+              name: data
+              readOnly: false
+            - mountPath: /tmp
+              name: tmp
+              readOnly: false
+      volumes:
+        - name: data
+          hostPath:
+            path: /srv/linkding/data
+            type: DirectoryOrCreate
+        - name: tmp
+          emptyDir: {}
