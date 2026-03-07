@@ -1,14 +1,10 @@
+---
 env:
   TZ: "Europe/Warsaw"
- 
 persistence:
   homarrDatabase:
     enabled: true
     size: "1Gi"
- 
-# Service configuration
 service:
-  # -- Enable service
   enabled: true
-  # -- Service type
   type: LoadBalancer
