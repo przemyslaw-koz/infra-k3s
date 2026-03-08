@@ -46,9 +46,9 @@ jobs:
 
       - name: Run kubeconform validation
         uses: docker://ghcr.io/yannh/kubeconform:latest
-        with:
+        sith:
           entrypoint: '/kubeconform'
-          args: "-strict -summary audiobookshelf/ linkding/ umami/ homarr/"
+          args: "-strict -summary -recursive ./glob:**/manifests/*.yml" 
   gitleaks:
     name: Gitleaks scan
     runs-on: ubuntu-latest
