@@ -46,7 +46,7 @@ jobs:
 
       - name: Run kubeconform validation
         uses: docker://ghcr.io/yannh/kubeconform:latest
-        sith:
+        with:
           entrypoint: '/kubeconform'
           args: "-strict -summary -recursive ./glob:**/manifests/*.yml" 
   gitleaks:
