@@ -48,7 +48,7 @@ jobs:
         uses: docker://ghcr.io/yannh/kubeconform:latest
         with:
           entrypoint: '/kubeconform'
-          args: "-strict -summary /umami/manifests /audiobookshelf/manifests /linkding/manifests"
+          args: "-strict -summary umami/manifests audiobookshelf/manifests linkding/manifests"
   gitleaks:
     name: Gitleaks scan
     runs-on: ubuntu-latest
