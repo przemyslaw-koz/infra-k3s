@@ -3,6 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: linkding
+  namespace: linkding
   labels:
     app: linkding
 spec:
