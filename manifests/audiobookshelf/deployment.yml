@@ -53,14 +53,11 @@ spec:
               readOnly: true
       volumes:
         - name: config
-          hostPath:
-            path: /srv/audiobookshelf/config
-            type: DirectoryOrCreate
+          persistentVolumeClaim:
+            claimName: config
         - name: metadata
-          hostPath:
-            path: /srv/audiobookshelf/metadata
-            type: DirectoryOrCreate
+          persistentVolumeClaim:
+            claimName: metadata
         - name: audiobooks
-          hostPath:
-            path: /srv/audiobookshelf/audiobooks
-            type: DirectoryOrCreate
+          persistentVolumeClaim:
+            claimName: audiobooks
