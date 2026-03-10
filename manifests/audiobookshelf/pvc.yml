@@ -3,36 +3,39 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: config
+  namespace: audiobookshelf
 spec:
   storageClassName: local-srv-data
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage:
+      storage: 256Mi
 
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: metadata
+  namespace: audiobookshelf
 spec:
   storageClassName: local-srv-data
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage:
+      storage: 256Mi
 
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: audiobooks
+  namespace: audiobookshelf
 spec:
   storageClassName: local-srv-data
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage:
+      storage: 5Gi
