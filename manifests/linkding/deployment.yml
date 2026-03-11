@@ -56,8 +56,7 @@ spec:
               readOnly: false
       volumes:
         - name: data
-          hostPath:
-            path: /srv/linkding/data
-            type: DirectoryOrCreate
+          persistentVolumeClaim:
+            claimName: data
         - name: tmp
           emptyDir: {}
