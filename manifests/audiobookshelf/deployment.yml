@@ -23,9 +23,9 @@ spec:
       containers:
         - name: audiobookshelf
           image: ghcr.io/advplyr/audiobookshelf:latest
-          env:
-            - name: TZ
-              value: Europe/Warsaw
+          envFrom:
+            - configMapRef:
+                name: cm-audiobookshelf
           ports:
             - containerPort: 80
               name: http

@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: cm-audiobooshelf
+  name: cm-audiobookshelf
   namespace: audiobookshelf
 data:
   TZ: Europe/Warsaw
