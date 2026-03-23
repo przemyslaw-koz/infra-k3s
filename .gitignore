@@ -4,3 +4,6 @@
 **/*secret*.yml
 **/*secret*.yaml
 **/.env
+
+!**/secret.sops.yml
+!**/secret.sops.yaml
