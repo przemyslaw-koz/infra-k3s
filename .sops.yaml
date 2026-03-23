@@ -1,3 +1,7 @@
+stores:
+  yaml:
+    indent: 2
+
 creation_rules:
   - path_regex: .*secret(\.sops)?\.ya?ml$
     age: age1m5kknfc3qvyut6cwjmg45d542hl3h2p6v0zrsnwenc970xvcudxsp4dw08
