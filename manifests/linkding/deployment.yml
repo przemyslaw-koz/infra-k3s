@@ -23,7 +23,7 @@ spec:
         fsGroup: 1000
       containers:
         - name: linkding
-          image: sissbruecker/linkding:latest
+          image: sissbruecker/linkding:1.45.0
           env:
             - name: LD_SUPERUSER_NAME
               valueFrom:
