@@ -22,7 +22,7 @@ spec:
         runAsNonRoot: true
       containers:
         - name: umami
-          image: ghcr.io/umami-software/umami:postgresql-latest
+          image: ghcr.io/umami-software/umami:3.0.3
           env:
             - name: DATABASE_URL
               valueFrom:
