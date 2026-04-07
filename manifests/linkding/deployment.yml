@@ -50,7 +50,7 @@ spec:
               path: /health
               port: 9090
             initialDelaySeconds: 10
-            periodSeconds: 10
+            periodSeconds: 45
           securityContext:
             allowPrivilegeEscalation: false
             readOnlyRootFilesystem: true
