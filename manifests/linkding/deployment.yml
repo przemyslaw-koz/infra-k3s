@@ -38,6 +38,10 @@ spec:
           ports:
             - containerPort: 9090
               name: http
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 9090
           securityContext:
             allowPrivilegeEscalation: false
             readOnlyRootFilesystem: true

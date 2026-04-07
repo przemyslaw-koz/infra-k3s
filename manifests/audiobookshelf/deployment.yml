@@ -31,8 +31,10 @@ spec:
               name: http
           livenessProbe:
             httpGet:
-              path: /healhcheck
+              path: /healthcheck
               port: 80
+            initialDelaySeconds: 10
+            periodSeconds: 10
           securityContext:
             allowPrivilegeEscalation: false
             readOnlyRootFilesystem: true
