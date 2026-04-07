@@ -29,6 +29,10 @@ spec:
           ports:
             - containerPort: 80
               name: http
+          livenessProbe:
+            httpGet:
+              path: /healhcheck
+              port: 80
           securityContext:
             allowPrivilegeEscalation: false
             readOnlyRootFilesystem: true
